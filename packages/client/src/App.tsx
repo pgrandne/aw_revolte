@@ -42,7 +42,7 @@ export const App = () => {
         </Card>
 
         <Footer>
-          <TextLink href="https://v2.mud.dev">MUD docs</TextLink>
+          <TextLink href="https://v2.mud.dev">Github</TextLink>
         </Footer>
       </AppContainer>
     </Container >

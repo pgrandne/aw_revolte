@@ -15,7 +15,6 @@ const ToDoItemWrapper = styled.div`
   color: white;
 `;
 
-
 export function ToDoItem({ id, body, done }: Props) {
   const {
     systemCalls: {
@@ -31,6 +30,10 @@ export function ToDoItem({ id, body, done }: Props) {
       <input type="checkbox" checked={done} onChange={(e) => {
         toggleDone(id);
       }} />
+      <button onClick={(e) => {
+        toggleDone(id);
+      }}>
+        Click</button>
     </ToDoItemWrapper>
   )
 }
