@@ -13,10 +13,12 @@ $ git clone https://github.com/pgrandne/aw_revolte.git
 ```
 
 ### Front End ###
-We use React. The Front End scripts are in "packages/client" folder.
-If you want to launch the Front End locally:
+We use React.
+The Front End scripts are in "packages/client" folder.
 
 ### Contracts ###
+We use MUD framework from latticexyz for core contracts.
+The folder is in "packages/contracts".
 We use .env for environment variables. Change the name of env.example to .env and fill in the variable:
    - We use PRIVATE KEY for interacting with the blockchain, save progression and mint NFTs
 
