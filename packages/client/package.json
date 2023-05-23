@@ -22,12 +22,17 @@
     "@latticexyz/std-client": "2.0.0-alpha.1.148",
     "@latticexyz/utils": "2.0.0-alpha.1.148",
     "@latticexyz/world": "2.0.0-alpha.1.148",
+    "@rainbow-me/rainbowkit": "^1.0.0",
     "@wagmi/chains": "^0.2.22",
     "contracts": "workspace:*",
     "ethers": "^5.7.2",
+    "framer-motion": "^10.12.13",
     "react": "^18.2.0",
+    "react-device-detect": "^2.2.3",
     "react-dom": "^18.2.0",
-    "styled-components": "6.0.0-rc.1"
+    "styled-components": "6.0.0-rc.1",
+    "viem": "^0.3.35",
+    "wagmi": "^1.0.5"
   },
   "devDependencies": {
     "@types/react": "^18.2.6",

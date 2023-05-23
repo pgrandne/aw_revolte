@@ -2,12 +2,12 @@ import { mudConfig } from "@latticexyz/world/register";
 
 export default mudConfig({
   tables: {
-    Game: {
+    Progression: {
       schema: {
-        done: "bool",
-        number: "uint256",
-        nft: "string",
-        content: "string",
+        player: "address",
+        chapter: "uint256",
+        episode: "uint256",
+        scene: "uint256",
       }
     },
     Rule: {
