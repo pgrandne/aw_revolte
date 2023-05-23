@@ -23,5 +23,20 @@ export function defineContractComponents(world: World) {
         }
       );
     })(),
+    Rule: (() => {
+      const tableId = new TableId("", "Rule");
+      return defineComponent(
+        world,
+        {
+          initialized: RecsType.Boolean,
+        },
+        {
+          metadata: {
+            contractId: tableId.toHexString(),
+            tableId: tableId.toString(),
+          },
+        }
+      );
+    })(),
   };
 }

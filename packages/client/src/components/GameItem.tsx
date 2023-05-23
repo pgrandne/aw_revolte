@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { useMUD } from "../MUDContext";
+import { useState } from "react";
+import { Modal } from "../components";
 
 type Props = {
   id: string;
@@ -18,6 +20,8 @@ export const GameItem = ({ id, number, nft, content, done }: Props) => {
       Game,
     },
   } = useMUD();
+
+  const [modal, setModal] = useState(false);
 
   const coinColor = () => {
     let color
@@ -60,19 +64,23 @@ export const GameItem = ({ id, number, nft, content, done }: Props) => {
   }
 
   const handleClick = () => {
-    if (!done)
+    if (!done) {
       toggleDone(id)
+      setModal(true)
+    }
     else
       window.alert('already played')
-    console.log(number)
   }
 
   return (
-    <button
-      className={`p-0 w-12 h-12 ${coinColor()} rounded-full active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none`}
-      onClick={handleClick}
-    >
-      {Number(number)}
-    </button>
+    <div className="flex justify-center">
+      <button
+        className={`p-0 w-12 h-12 ${coinColor()} rounded-full active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none`}
+        onClick={handleClick}
+      >
+        {Number(number)}
+      </button>
+      {modal && <Modal nft={nft} content={content} setModal={setModal} />}
+    </div>
   )
 }

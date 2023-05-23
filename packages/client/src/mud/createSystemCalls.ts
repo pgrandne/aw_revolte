@@ -19,9 +19,19 @@ export function createSystemCalls(
     worldSend("toggleDone", [entityToBytes32(id)])
   }
 
+  const addGame = () => {
+    worldSend("addGame",[])
+  }
+
+  const launchGame = (id:string) => {
+    worldSend("launchGame", [entityToBytes32(id)])
+  }
+
   return {
     addColor,
     toggleDone,
+    addGame,
+    launchGame,
   };
 
 }

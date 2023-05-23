@@ -6,5 +6,9 @@ pragma solidity >=0.8.0;
 interface IGameSystem {
   function addColor(string memory nft, string memory content) external;
 
-  function toggleDone(bytes32 gameId) external;
+  function toggleDone(bytes32 colorId) external;
+
+  function addGame() external;
+
+  function launchGame(bytes32 gameId) external;
 }

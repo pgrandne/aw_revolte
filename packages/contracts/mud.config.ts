@@ -10,6 +10,11 @@ export default mudConfig({
         content: "string",
       }
     },
+    Rule: {
+      schema: {
+        initialized:"bool",
+      }
+    }
   },
   modules: [
     {

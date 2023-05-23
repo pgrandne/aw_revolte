@@ -43,13 +43,6 @@ export const Card = styled.div`
   margin-top: 1rem;
 `;
 
-export const FormFieldWrapper = styled(FlexContainer)`
-  flex-direction: row;
-  padding: 0px;
-  gap: 12px;
-  width: 100%;
-`;
-
 export const FormField = styled.input`
   box-sizing: border-box;
   display: flex;
