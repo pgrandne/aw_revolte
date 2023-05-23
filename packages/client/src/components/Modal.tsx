@@ -1,32 +1,119 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useAccount } from "wagmi";
+import { roadmapPic } from "../assets/img";
 
-export const Modal = ({ nft, content, setModal }: {
-    nft: string,
-    content: string,
-    setModal: Dispatch<SetStateAction<boolean>>
+export const ModalProgression = ({ route }: { route: string }) => {
+    const [loading, setLoading] = useState(false);
+
+    return (
+        <div className="bg-slate-900 bg-opacity-90 flex justify-center items-center absolute top-0 right-0 bottom-0 left-0 z-20">
+            <div
+                className={` bg-[#0f1216] px-2 sm:px-16 py-2 sm:py-14 rounded-md text-center w-2/5`}
+            >
+                <div className="flex flex-col justify-center">
+                    <p className="mb-4 font-bold ">Progression saved!</p>
+                    <p className="mb-4 font-bold ">You can go to the next episode</p>
+                </div>
+                <button
+                    className="flex bg-red-500  hover:bg-red-700 px-7 py-2 mx-auto rounded-md text-md text-white font-semibold"
+                    onClick={() => {
+                        setLoading(true);
+                    }}
+                >
+                    {loading && (
+                        <svg
+                            className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                        >
+                            <circle
+                                className="opacity-25"
+                                cx="12"
+                                cy="12"
+                                r="10"
+                                stroke="black"
+                                strokeWidth="4"
+                            ></circle>
+                            <path
+                                className="opacity-75"
+                                fill="currentColor"
+                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                            ></path>
+                        </svg>
+                    )}
+                    {loading ? "Processing..." : "Next episode"}
+                </button>
+            </div>
+        </div>
+    );
+};
+
+export const ModalInfo = ({
+    setModalInfo,
+    deck,
+}: {
+    setModalInfo: Dispatch<SetStateAction<boolean>>;
+    deck: boolean;
 }) => {
 
     return (
-        <div className="w-1/2 h-screen animated fadeIn faster  fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none focus:outline-none bg-no-repeat bg-center bg-cover" id="modal-id">
-            <div className="absolute bg-black opacity-80 inset-0 z-0 p-2"></div>
-            <div className="w-full  max-w-lg p-5 relative mx-auto my-auto rounded-xl shadow-lg  bg-white ">
-                <div className="">
-                    <div className="text-center p-5 flex-auto justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="w-16 h-16 flex items-center text-red-500 mx-auto" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
-                        </svg>
-                        <h2 className="text-xl font-bold text-black py-4 ">{content}</h2>
-                        <div className="flex justify-center">
-                            <img src={nft} />
-                        </div>
-                    </div>
-                    <div className="p-3  mt-2 text-center space-x-4 md:block">
-                        <button className="mb-2 md:mb-0 bg-red-500 border border-red-500 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-red-600"
-                            onClick={() => { setModal(false) }}
-                        >Close</button>
-                    </div>
+        <div className="bg-slate-900 bg-opacity-60 flex justify-center items-center absolute top-0 right-0 bottom-0 left-0 z-50">
+            <div
+                className={` bg-[#0f1216] px-2 sm:px-16 py-2 sm:py-14 rounded-md text-center w-4/5`}
+            >
+                <div className="flex justify-center">
+                    {deck && (
+                        <p className="inline font-sans sm:block text-sm md:text-xl my-4 font-bold">
+                            <span className="font-permarker md:text-3xl">Revolte </span>{" "}
+                            {"an interactive novel to onboard Web2 users to Web3"}
+                        </p>
+                    )}
+                    {!deck && (
+                        <p className="inline font-sans sm:block text-sm md:text-xl my-4 font-bold">
+                            <span className="font-permarker md:text-3xl">Revolte </span>{" "}
+                            "is an open source project. If you want to support us, you can make a donation at:"
+                        </p>
+                    )}
                 </div>
+                {deck && (
+                    <p className="font-sans sm:block justify-center text-sm md:text-xl mb-4 font-bold ">
+                        "Discover our Pitch Deck" ({" "}
+                        <a
+                            className="underline"
+                            target="_blank"
+                            href="https://www.canva.com/design/DAFaoOaGU3A/Jj8ILlofzMJ5_gv8nlivKg/view?utm_content=DAFaoOaGU3A&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+                        >
+                            "Online"{" "}
+                        </a>{" "}
+                        /{" "}
+                        <a
+                            className="underline"
+                            target="_blank"
+                            href="https://drive.google.com/uc?id=1heBnCKRaljTbxGf0CcZR3-e65KASU53A&export=download"
+                        >
+                            "Download"
+                        </a>{" "}
+                        )
+                    </p>
+                )}
+                {!deck && (
+                    <p className="font-sans sm:block justify-center text-xs md:text-base mb-4 font-bold ">
+                        0x94b9420F65fB3ec966d96BB034b35AF86487D929
+                    </p>
+                )}
+                <img
+                    className="object-contain transform md:scale-75"
+                    src={roadmapPic}
+                    alt="roadmap"
+                />
+                <button
+                    className="bg-red-500  hover:bg-red-700 px-7 py-2 ml-2 rounded-md text-md text-white font-semibold"
+                    onClick={() => setModalInfo(false)}
+                >
+                    "Close"{" "}
+                </button>
             </div>
-        </div >
-    )
-}
+        </div>
+    );
+};
