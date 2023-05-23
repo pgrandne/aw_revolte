@@ -2,13 +2,14 @@ import { mudConfig } from "@latticexyz/world/register";
 
 export default mudConfig({
   tables: {
-    ToDo: {
+    Game: {
       schema: {
         done: "bool",
-        owner: "bytes32",
-        body: "string",
+        number: "uint256",
+        nft: "string",
+        content: "string",
       }
-    }
+    },
   },
   modules: [
     {

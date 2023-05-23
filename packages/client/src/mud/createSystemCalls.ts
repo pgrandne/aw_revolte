@@ -11,8 +11,8 @@ export function createSystemCalls(
   { worldSend }: SetupNetworkResult,
   components: ClientComponents
 ) {
-  const addToDo = (body:string) => {
-    worldSend("addToDo", [body])
+  const addColor = (nft:string,content:string) => {
+    worldSend("addColor", [nft,content])
   }
 
   const toggleDone = (id:string) => {
@@ -20,9 +20,8 @@ export function createSystemCalls(
   }
 
   return {
-    addToDo,
+    addColor,
     toggleDone,
   };
-
 
 }

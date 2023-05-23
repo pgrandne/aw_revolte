@@ -4,14 +4,10 @@ import {
   AppContainer,
   Container,
   Card,
-  HeaderDiv,
-  Subtitle,
-  Title,
   Footer,
   TextLink,
 } from "./theme";
-import { ToDoForm } from "./ToDoForm";
-import { ToDoItem } from "./ToDoItem";
+import { GameForm, GameItem } from "./components";
 import { useMUD } from "./MUDContext";
 import { useEntityQuery } from "@latticexyz/react";
 import { Has, getComponentValueStrict } from "@latticexyz/recs";
@@ -19,28 +15,25 @@ import { Has, getComponentValueStrict } from "@latticexyz/recs";
 export const App = () => {
   const {
     components: {
-      ToDo,
+      Game,
     },
   } = useMUD();
 
-  const todoIds = useEntityQuery([Has(ToDo)]);
+  const gameIds = useEntityQuery([Has(Game)]);
 
   return (
     <Container>
       <AppContainer>
-        <HeaderDiv>
-          <Title>MUD x React Workshop</Title>
-          <Subtitle>Creating a todo list using MUD</Subtitle>
-        </HeaderDiv>
-
         <Card>
-          {[...todoIds].map(id => {
-            const todoData = getComponentValueStrict(ToDo, id);
-            return <ToDoItem key={id} id={id} {...todoData} />
-          })}
-          <ToDoForm />
+          <div className="grid gap-4 grid-cols-3 grid-rows-3 mb-2">
+            {[...gameIds].map(id => {
+              const gameData = getComponentValueStrict(Game, id);
+              return <GameItem key={id} id={id} {...gameData} />
+            })}
+          </div>
+          <GameForm />
         </Card>
-
+        {/* <Hero /> */}
         <Footer>
           <TextLink href="https://v2.mud.dev">Github</TextLink>
         </Footer>

@@ -30,30 +30,10 @@ export const AppContainer = styled(FlexContainer)`
   justify-content: start;
 `;
 
-export const HeaderDiv = styled(FlexContainer)`
-  gap: 4px;
-`;
-
-export const Title = styled.span`
-  color: #ffffff;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 32px;
-`;
-
-export const Subtitle = styled.span`
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  color: rgba(255, 255, 255, 0.6);
-`;
-
 export const Card = styled.div`
   color: white;
   width: 480px;
-  height: 400px;
+  height: 500px;
   background: #23272f;
   border: 1px solid #3e444e;
   border-radius: 4px;
