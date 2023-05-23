@@ -22,6 +22,11 @@ The folder is in "packages/contracts".
 We use .env for environment variables. Change the name of env.example to .env and fill in the variable:
    - We use PRIVATE KEY for interacting with the blockchain, save progression and mint NFTs
 
+### NFT Storage ###
+Metadata stored on Filecoin and IPFS with URL:
+   - NFT Chapter 1 : ipfs://bafyreiagjggih5slbx3lfcd2mridz7csa2pz554l4matjie5wcbfusvyxy/metadata.json
+   - NFT Chapter 2 : ipfs://bafyreiagjggih5slbx3lfcd2mridz7csa2pz554l4matjie5wcbfusvyxy/metadata.json
+   - NFT Chapter 3 : ipfs://bafyreihb2sn5vinez3srb6ns7o47ofeacmffv2nf6lzxusbikafir5x3ve/metadata.json
 ### Launch Revolte ###
 1. Go to "aw_revolte" folder
 ```bash

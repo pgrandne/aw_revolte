@@ -27,7 +27,9 @@
     "@latticexyz/std-contracts": "2.0.0-alpha.1.148",
     "@latticexyz/store": "2.0.0-alpha.1.148",
     "@latticexyz/world": "2.0.0-alpha.1.148",
-    "ethers": "^5.7.2"
+    "dotenv": "^16.0.3",
+    "ethers": "^5.7.2",
+    "nft.storage": "^7.1.0"
   },
   "devDependencies": {
     "@typechain/ethers-v5": "^10.2.0",
